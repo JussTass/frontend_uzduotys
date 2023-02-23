@@ -1,0 +1,54 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div style="text-align: center;">
+            <script>
+                let n = 12; //Eiluciu skaicius
+
+                function Zvaigzdute(star)
+                {
+                    if (star == 0){
+                        return;
+                    }
+                    else{
+                        document.write("*");
+                        Zvaigzdute(star - 1);
+                    }              
+                }
+                
+                function virsutineDalis(n, num)
+                {
+                    if (n == 0){
+                        return;
+                    }
+                    else {
+                        Zvaigzdute(num - n + 1);
+                        document.write("<br>");               
+                        virsutineDalis(n - 1, num); 
+                    }             
+                }
+                
+                function apatineDalis(n, num)
+                {
+                    if (n == 0){
+                        return;
+                    }
+                    else{
+                        Zvaigzdute(n);
+                        document.write("<br>");               
+                        apatineDalis(n - 1, num); 
+                    }                        
+                }
+                
+                function deimantas(n, num)
+                {
+                    virsutineDalis(n, num);
+                    apatineDalis(n - 1, num);
+                }
+                deimantas(n, n);
+            </script>
+        </div>             
+    </body>
+</html>

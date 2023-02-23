@@ -1,0 +1,66 @@
+//kintamieji
+$switchoIlgis : 100px;
+$switchoAukstis : 50px;
+
+
+$x2 : 2px;
+$minus : 8px;
+$rutAukstis : $switchoIlgis / $x2 - $minus;
+
+$xx2 : 2px;
+$minusM : 0px;
+$sliderIlgis : $switchoIlgis / $xx2 - $minusM;
+
+$krastines : calc($minus / $x2);
+
+
+
+//Switchas
+.switch {
+    position: relative;
+    display: inline-block;
+    width: $switchoIlgis;
+    height: $switchoAukstis;
+    input { 
+        opacity: 0;
+        width: 0;
+        height: 0;
+        &:checked + .slider {
+            background-color: #2196F3;
+        }  
+        &:checked + .slider:before {
+            -webkit-transform: translateX($sliderIlgis);
+            -ms-transform: translateX($sliderIlgis);
+            transform: translateX($sliderIlgis);
+        }
+    }   
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+        &:before {
+            position: absolute;
+            content: "";
+            height: $rutAukstis;
+            width: $rutAukstis;
+            left: $krastines;
+            bottom: $krastines;
+            vertical-align: middle;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+        &.round {
+            border-radius: 34px;
+            &:before {
+                border-radius: 50%;
+            } 
+        }            
+    }        
+}
